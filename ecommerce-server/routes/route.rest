@@ -1,0 +1,31 @@
+GET http://localhost:4000/api/product
+###
+POST http://localhost:4000/api/product
+Content-Type: application/json
+
+{
+    "product_name": "Vomero 5",
+    "thumbnail": "https://www.footlocker.ph/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0803-NIKFB8825001GRE08H-1.jpg",
+    "quantity": 5,
+    "description": "Women's Zoom Vomero 5 Premium",
+    "size": "5US",
+    "price": 6500
+}
+
+###
+
+DELETE http://localhost:4000/api/product/66405359f1c0c93c6bfa47ba
+
+###
+PATCH http://localhost:4000/api/product/66405933f6ed2c4469c22df7
+Content-Type: application/json
+
+{
+   
+    "product_name": "JORDAN 5",
+    "quantity": 13,
+    "size": "8US",
+    "sales_price": 500,
+    
+    
+}
