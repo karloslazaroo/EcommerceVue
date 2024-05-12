@@ -35,10 +35,10 @@ router.get('/', async (req, res) =>{
 });
 
 //add new product
-router.post('/', upload.single('image'), async (req, res) => {
+router.post('/', async (req, res) =>{
     const product = new Product({
       product_name: req.body.product_name,
-      thumbnail: req.file ? req.file.path : '', // Use req.file.path if available
+      thumbnail: req.body.thumbnail, // Updated to use the correct field name
       quantity: req.body.quantity,
       description: req.body.description,
       price: req.body.price,
@@ -52,7 +52,6 @@ router.post('/', upload.single('image'), async (req, res) => {
       res.json({ message: err.message });
     }
   });
-  
 
 //delete product
 router.delete('/:id', getProduct, async (req,res) => {
