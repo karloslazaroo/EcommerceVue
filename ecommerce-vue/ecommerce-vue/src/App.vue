@@ -30,9 +30,14 @@ export default {
   height: auto; /* Maintain aspect ratio */
   margin-right: 10px; /* Add some spacing between logo and text */
 }
+
+header {
+  background-color: #ffffff; /* Example background color for header */
+
+}
+
 nav {
   display: flex;
-  
   justify-content: center; /* Center items horizontally */
   align-items: center;
 }
@@ -58,10 +63,9 @@ nav {
   color: white;
   padding: 20px;
   text-align: center;
+  grid-row-start: auto;
+  grid-row-end: auto;
+  grid-column-start: 1;
+  grid-column-end: -1;
 }
-
-
-
-
-
 </style>

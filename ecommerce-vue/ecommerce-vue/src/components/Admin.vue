@@ -1,14 +1,45 @@
 <template>
   <div>
     <h2>Admin Page</h2>
-    <form @submit.prevent="submitForm">
+    <form @submit.prevent="submitForm" class="product-form">
       <!-- Add product form fields -->
-      <input type="text" v-model="formData.product_name" placeholder="Product Name">
-      <input type="text" v-model="formData.thumbnail" placeholder="Thumbnail URL">
-      <input type="number" v-model="formData.quantity" placeholder="Quantity">
-      <input type="text" v-model="formData.description" placeholder="Description">
-      <input type="text" v-model="formData.size" placeholder="Size">
-      <input type="number" v-model="formData.price" placeholder="Price">
+      <div class="form-container">
+        <!-- Product Name -->
+        <div class="form-group">
+          <label for="product_name">Product Name:</label>
+          <input type="text" id="product_name" v-model="formData.product_name" placeholder="Enter product name">
+        </div>
+
+        <!-- Thumbnail URL -->
+        <div class="form-group">
+          <label for="thumbnail">Thumbnail URL:</label>
+          <input type="text" id="thumbnail" v-model="formData.thumbnail" placeholder="Enter thumbnail URL">
+        </div>
+
+        <!-- Quantity -->
+        <div class="form-group">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" v-model="formData.quantity" placeholder="Enter quantity">
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <input type="text" id="description" v-model="formData.description" placeholder="Enter description">
+        </div>
+
+        <!-- Size -->
+        <div class="form-group">
+          <label for="size">Size:</label>
+          <input type="text" id="size" v-model="formData.size" placeholder="Enter size">
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" v-model="formData.price" placeholder="Enter price">
+        </div>
+      </div>
 
       <button type="submit">Add Product</button>
     </form>
@@ -78,26 +109,72 @@ export default {
         });
     },
     removeProduct(product) {
-  axios.delete(`http://localhost:4000/api/product/${product._id}`)
-    .then(response => {
-      console.log('Product removed successfully:', response.data);
-      // Update the products list by fetching it again from the server
-      this.fetchProducts();
-    })
-    .catch(error => {
-      console.error('Error removing product:', error);
-    });
-}
+      axios.delete(`http://localhost:4000/api/product/${product._id}`)
+        .then(response => {
+          console.log('Product removed successfully:', response.data);
+          // Update the products list by fetching it again from the server
+          this.fetchProducts();
+        })
+        .catch(error => {
+          console.error('Error removing product:', error);
+        });
+    }
   }
 };
 </script>
 
 <style scoped>
-li {
-  list-style: none;
+.product-form {
+  max-width: 400px;
+  margin: auto; /* Center the form horizontally */
+  padding: 20px;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form vertically */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 .product-image {
-  max-width: 200px; /* Set maximum width for the image */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 100px;
+  height: auto;
 }
 </style>

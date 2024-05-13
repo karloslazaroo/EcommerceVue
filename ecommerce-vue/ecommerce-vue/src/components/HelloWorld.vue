@@ -2,9 +2,13 @@
   <div>
     
     <ul>
+      <div class="view-cart-container">
       <router-link to="/cart">
-        <button>View Cart <i class="fas fa-shopping-cart"></i> <span class="cart-count">{{ cart.length }}</span></button>
+        <button class="view-cart-button">
+          View Cart <i class="fas fa-shopping-cart"></i> <span class="cart-count">{{ cart.length }}</span>
+        </button>
       </router-link>
+    </div>
       <div class="product-grid">
         <li v-for="item in items" :key="item._id">
           <img :src="item.thumbnail" alt="" class="product-image">
@@ -50,6 +54,29 @@ li {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
+
+.view-cart-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 80px /* Adjust margin as needed */
+}
+.view-cart-button {
+  background-color: #b3b3b3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-cart-button:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
 .cart-count {
   background-color: red;
   color: white;
@@ -58,6 +85,7 @@ li {
   font-size: 0.8em;
   margin-left: 5px;
 }
+
 
 .product-image {
   width: 80%;

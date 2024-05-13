@@ -10,10 +10,12 @@
             <img :src="cartItem.thumbnail" alt="" class="product-image">
           </div>
           <div class="item-info">
-            <span class="item-name">{{ cartItem.product_name }}</span>
-            <span class="item-description">{{ cartItem.description }}</span>
-            <span class="item-price">₱{{ cartItem.price }}</span>
-            <span class="item-quantity">Quantity: {{ cartItem.quantity }}</span>
+            <h3 class="item-name">{{ cartItem.product_name }}</h3>
+            <p class="item-description">{{ cartItem.description }}</p>
+            <div class="item-meta">
+              <span class="item-price">Price: ₱{{ cartItem.price }}</span>
+              <span class="item-quantity">Quantity: {{ cartItem.quantity }}</span>
+            </div>
           </div>
         </div>
         <button class="remove-button" @click="removeItem(cartItem)">Remove</button>
@@ -60,21 +62,22 @@ export default {
 
 <style scoped>
 .cart-container {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
   padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1000px;
 }
 
 .cart-title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .cart-title i {
-  margin-right: 5px;
+  margin-right: 10px;
+  color: #333;
 }
 
 .cart-items {
@@ -86,25 +89,27 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 20px 0;
   border-bottom: 1px solid #ddd;
   transition: background-color 0.3s ease;
 }
 
+.cart-item:last-child {
+  border-bottom: none;
+}
+
 .cart-item:hover {
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .item-details {
   display: flex;
-  flex: 1;
   align-items: center;
 }
 
 .item-image-container {
-  width: 80px;
-  height: 80px;
-  overflow: hidden;
+  width: 100px;
+  height: 100px;
   margin-right: 20px;
 }
 
@@ -112,30 +117,33 @@ export default {
   max-width: 100%;
   height: auto;
   display: block;
+  border-radius: 5px;
 }
 
 .item-info {
   flex: 1;
 }
 
-.item-info > * {
-  margin-bottom: 5px; /* Add space between item info */
-}
-
-.item-name {
-  font-weight: bold;
+.item-info h3 {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #333;
 }
 
 .item-description {
+  margin-bottom: 10px;
   color: #666;
+}
+
+.item-meta {
+  display: flex;
+  align-items: center;
 }
 
 .item-price {
+  margin-right: 20px;
   font-weight: bold;
-}
-
-.item-quantity {
-  color: #666;
+  color: #333;
 }
 
 .remove-button {
