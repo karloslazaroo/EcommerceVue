@@ -21,6 +21,30 @@
         <button class="remove-button" @click="removeItem(cartItem)">Remove</button>
       </li>
     </ul>
+    
+    <!-- Checkout button -->
+    <button class="checkout-button" @click="showSummary">Checkout</button>
+    
+    <!-- Popup component -->
+    <div class="popup-overlay" v-if="showPopup">
+      <div class="popup">
+        <span class="close-button" @click="closeSummary">&times;</span>
+        <h3>Summary</h3>
+        <ul>
+          <li v-for="item in cart" :key="item._id">
+            <div class="summary-item">
+              <img :src="item.thumbnail" alt="" class="summary-image">
+              <div>
+                <p>{{ item.product_name }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total: ₱{{ item.price * item.quantity }}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button class="checkout-button" @click="checkoutAndClose">Proceed to Checkout</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +52,8 @@
 export default {
   data() {
     return {
-      cart: [] // Initialize cart as an empty array
+      cart: [], // Initialize cart as an empty array
+      showPopup: false // Flag to control popup visibility
     };
   },
   methods: {
@@ -49,6 +74,17 @@ export default {
         // Update localStorage
         localStorage.setItem('cart', JSON.stringify(this.cart));
       }
+    },
+    showSummary() {
+      this.showPopup = true; // Show popup when checkout button is clicked
+    },
+    closeSummary() {
+      this.showPopup = false; // Close popup when the user clicks close button
+    },
+    checkoutAndClose() {
+      // Implement checkout logic
+      // Close the popup after checkout
+      this.showPopup = false;
     }
   },
   created() {
@@ -158,5 +194,64 @@ export default {
 
 .remove-button:hover {
   background-color: #d32f2f;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.checkout-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #d32f2f;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.summary-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 </style>
