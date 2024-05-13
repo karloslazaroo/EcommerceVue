@@ -9,7 +9,7 @@
         <router-link to="/" class="nav-link">Home</router-link>
         <router-link to="/products" class="nav-link">Products</router-link>
         <router-link to="/cart" class="nav-link">Cart</router-link>
-        <router-link to="/admin" class="nav-link">Admin</router-link>
+        
       </nav>
     </header>
     <router-view></router-view>
