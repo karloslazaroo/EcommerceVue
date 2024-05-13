@@ -224,8 +224,8 @@ input[type="number"] {
 }
 
 button {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #eeeeee;
+  color: rgb(0, 0, 0);
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -234,7 +234,8 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #000000;
+  color: aliceblue;
 }
 
 ul {

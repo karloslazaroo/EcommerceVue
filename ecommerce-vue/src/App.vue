@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <header>
-      <img src="./assets/pictures/logo.png" alt="South Street Logo" class="logo">
-      <h1>South Street</h1>
-      <nav>
+    <header class="header">
+      <div class="logo-container">
+        <img src="./assets/pictures/logo.png" alt="South Street Logo" class="logo">
+        <h1 class="title">South Street</h1>
+      </div>
+      <nav class="nav">
         <router-link to="/" class="nav-link">Home</router-link>
         <router-link to="/products" class="nav-link">Products</router-link>
         <router-link to="/cart" class="nav-link">Cart</router-link>
@@ -28,19 +30,26 @@ export default {
 .logo {
   width: 100px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
-  margin-right: 10px; /* Add some spacing between logo and text */
 }
 
-header {
+.title {
+  font-size: 24px;
+  margin-left: 10px; /* Add some spacing between logo and text */
+}
+
+.header {
   background-color: #ffffff; /* Example background color for header */
-
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccc; /* Add border to the bottom of the header */
 }
 
-nav {
+.nav {
   display: flex;
-  justify-content: center; /* Center items horizontally */
-  align-items: center;
-  width: 100%;
+  border-left: 2px solid #ccc; /* Add border to the left of the nav */
+  padding-left: 20px; /* Add some padding to the left of the nav */
 }
 
 .nav-link {
@@ -64,9 +73,5 @@ nav {
   color: white;
   padding: 20px;
   text-align: center;
-  grid-row-start: auto;
-  grid-row-end: auto;
-  grid-column-start: 1;
-  grid-column-end: -1;
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
+  <div class="banner">
+      <!-- Add your banner content here -->
+      <img src="../assets/header2.webp" alt="Banner Image">
+    </div>
   <div>
-    
+    <h2>Our Products</h2>
     <ul>
       <div class="view-cart-container">
       <router-link to="/cart">
@@ -124,6 +128,19 @@ li {
 .add-to-cart-button:hover {
   background-color: #7e7e7e;
   color: #ffffff;
+}
+
+.banner {
+  margin-top: 75px;
+  text-align: center;
+  margin-bottom: 250px;
+  width: 100%; /* Make the banner span the entire viewport */
+}
+
+.banner img {
+  width: 100%; /* Ensure the banner image spans the entire width */
+  height: 550px;
+  object-fit: cover; /* Maintain aspect ratio */
 }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Welcome to Our Store</h2>
+    <h2>Welcome to SouthStreet</h2>
     <div class="banner">
       <!-- Add your banner content here -->
       <img src="../assets/header.jpg" alt="Banner Image">
@@ -12,6 +12,10 @@
         <h3>{{ product.product_name }}</h3>
         <p>{{ product.description }}</p>
       </div>
+    </div>
+    <div class="banner">
+      <!-- Add your banner content here -->
+      <img src="../assets/header2.webp" alt="Banner Image">
     </div>
   </div>
 </template>
@@ -80,14 +84,12 @@ h3 {
   margin-top: 75px;
   text-align: center;
   margin-bottom: 250px;
-  
-/* Add some space between the banner and the product grid */
+  width: 100%; /* Make the banner span the entire viewport */
 }
 
 .banner img {
-  max-width: 100%;
-   
-
-  /* Ensure the banner image fits the container */
+  width: 100%; /* Ensure the banner image spans the entire width */
+  height: 550px;
+  object-fit: cover; /* Maintain aspect ratio */
 }
 </style>
