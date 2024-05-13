@@ -104,7 +104,7 @@ export default {
     },
     fetchProducts() {
       // Fetch products only when logged in
-      axios.get('http://localhost:4000/api/product')
+      axios.get('https://ecommercevue.onrender.com/api/product')
         .then(response => {
           this.products = response.data;
         })
@@ -113,7 +113,7 @@ export default {
         });
     },
     submitForm() {
-      axios.post('http://localhost:4000/api/product', this.formData)
+      axios.post('https://ecommercevue.onrender.com/api/product', this.formData)
         .then(response => {
           console.log('Product added successfully:', response.data);
           // Clear form fields after successful submission
@@ -133,7 +133,7 @@ export default {
         });
     },
     removeProduct(product) {
-      axios.delete(`http://localhost:4000/api/product/${product._id}`)
+      axios.delete(`https://ecommercevue.onrender.com/api/product/${product._id}`)
         .then(response => {
           console.log('Product removed successfully:', response.data);
           // Update the products list by fetching it again from the server

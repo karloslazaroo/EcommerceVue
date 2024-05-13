@@ -159,7 +159,7 @@ export default {
     }
   },
   created() {
-    axios.get('http://localhost:4000/api/product')
+    axios.get('https://ecommercevue.onrender.com/api/product')
       .then(response => {
         this.items = response.data;
       })

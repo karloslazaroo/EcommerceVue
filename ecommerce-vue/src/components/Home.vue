@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     fetchProducts() {
-      axios.get('http://localhost:4000/api/product')
+      axios.get('https://ecommercevue.onrender.com/api/product')
         .then(response => {
           this.products = response.data;
           this.displayedProducts = this.products.slice(0, 3); // Limit to 3 products
