@@ -40,6 +40,7 @@ nav {
   display: flex;
   justify-content: center; /* Center items horizontally */
   align-items: center;
+  width: 100%;
 }
 
 .nav-link {
@@ -55,7 +56,7 @@ nav {
 }
 
 .nav-link:hover {
-  color: #007bff;
+  color: #ffa5a5;
 }
 
 .footer {

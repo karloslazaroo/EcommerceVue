@@ -80,11 +80,13 @@ h3 {
   margin-top: 75px;
   text-align: center;
   margin-bottom: 250px;
+  
 /* Add some space between the banner and the product grid */
 }
 
 .banner img {
-  max-width: 100%; 
+  max-width: 100%;
+   
 
   /* Ensure the banner image fits the container */
 }
