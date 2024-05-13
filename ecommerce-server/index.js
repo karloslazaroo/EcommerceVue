@@ -10,6 +10,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+//mongodb+srv://karloslazaroo:101400karlo@cluster0.mongodb.net/Ecommerce-VUE?retryWrites=true&w=majority&ssl=true
+//mongodb+srv://karloslazaroo:101400karlo@cluster0.eeo2sln.mongodb.net/Ecommerce-VUE
+
 mongoose.connect('mongodb+srv://karloslazaroo:101400karlo@cluster0.eeo2sln.mongodb.net/Ecommerce-VUE', {
     useNewUrlParser: true,
     useUnifiedTopology: true
